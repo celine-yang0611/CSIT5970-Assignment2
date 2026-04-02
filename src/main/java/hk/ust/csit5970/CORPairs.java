@@ -61,7 +61,8 @@ public class CORPairs extends Configured implements Tool {
 				if (word.length() == 0) {
 					continue;
 				}
-				word_set.put(word, word_set.getOrDefault(word, 0) + 1);
+				Integer current = word_set.get(word);
+				word_set.put(word, (current == null ? 0 : current) + 1);
 			}
 
 			for (Map.Entry<String, Integer> entry : word_set.entrySet()) {
